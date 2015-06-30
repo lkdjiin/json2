@@ -8,9 +8,7 @@ describe "colors-object.json as input" do
     expect(json.csv).to eq csv
   end
 
-end
-
-def csv
+  def csv
 <<END
 color,value
 red,#f00
@@ -21,4 +19,6 @@ magenta,#f0f
 yellow,#ff0
 black,#000
 END
+  end
+
 end
