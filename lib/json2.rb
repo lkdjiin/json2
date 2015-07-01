@@ -1,4 +1,5 @@
 require 'json'
+
 require "json2/version"
 require "json2/json2csv"
 require "json2/header"

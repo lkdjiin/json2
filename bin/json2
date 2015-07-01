@@ -1,3 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'json2'
+
+input = JSON.parse(File.open(ARGV[0]).read)
+json = Json2::Json2csv.new(input)
+print json.csv

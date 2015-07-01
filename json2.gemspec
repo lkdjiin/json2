@@ -8,8 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Json2::VERSION
   spec.authors       = ["lkdjiin"]
   spec.email         = ["xavier.nayrac@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Transform json to csv.}
+  spec.description   = %q{json2 takes a json file as input and outputs a clean
+                          csv.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
