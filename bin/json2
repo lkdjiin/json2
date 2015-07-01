@@ -2,6 +2,6 @@
 
 require 'json2'
 
-input = JSON.parse(File.open(ARGV[0]).read)
+input = JSON.parse((ARGV[0] ? File.open(ARGV[0]) : $stdin).read)
 json = Json2::Json2csv.new(input)
 print json.csv
