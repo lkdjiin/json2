@@ -38,19 +38,13 @@ module Json2
       case object.class.name
       when "Array" then process_array(object)
       when "Hash" then process_keys(object)
-      when "String" then @nodes[@names_stack.join('.')] <<= object
       else
-        error(object, key)
+        @nodes[@names_stack.join('.')] <<= object
       end
     end
 
     def process_array(object)
       object.each {|element| process_keys(element) }
-    end
-
-    def error(object, key)
-      puts "Error, don't know what to do with #{key}:#{object.class}"
-      exit 2
     end
 
   end
