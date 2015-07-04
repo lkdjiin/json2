@@ -34,6 +34,9 @@ module Json2
           process_key(object[key])
           @names_stack.pop
         end
+      else
+        warn('Error, try with json2 --without-header')
+        exit 99
       end
     end
 

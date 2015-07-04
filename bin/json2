@@ -2,6 +2,14 @@
 
 require 'json2'
 
+opt = Json2::Option.new
+
 input = JSON.parse((ARGV[0] ? File.open(ARGV[0]) : $stdin).read)
-json = Json2::Json2csv.new(input)
-print json.csv
+
+json = if opt[:without_header]
+         Json2::CsvWithoutHeader.new(input)
+       else
+         Json2::CsvWithHeader.new(input)
+       end
+
+print json.output

@@ -40,6 +40,7 @@ module Json2
       when Array then process_array(object)
       when Hash then process_keys(object)
       else
+        warn('Error, try without using --without-header')
         exit 99
       end
     end
