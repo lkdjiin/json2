@@ -4,8 +4,8 @@ describe "colors-object.json as input" do
 
   it 'produces the CSV' do
     input = JSON.parse(File.open('spec/data/colors-object.json').read)
-    json = Json2::Json2csv.new(input)
-    expect(json.csv).to eq csv
+    csv_with_header = Json2::CsvWithHeader.new(input)
+    expect(csv_with_header.output).to eq csv
   end
 
   def csv

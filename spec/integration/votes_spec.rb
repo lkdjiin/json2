@@ -4,8 +4,8 @@ describe "votes.json as input" do
 
   it 'produces the CSV' do
     input = JSON.parse(File.open('spec/data/votes.json').read)
-    json = Json2::Json2csv.new(input, with_header: false)
-    expect(json.csv).to eq csv
+    csv_without_header = Json2::CsvWithoutHeader.new(input)
+    expect(csv_without_header.output).to eq csv
   end
 
   def csv
