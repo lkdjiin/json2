@@ -1,6 +1,7 @@
 require 'json'
 require 'optparse'
 
+require "json2/symbol_respond_to"
 require "json2/version"
 require "json2/csv_with_header"
 require "json2/csv_without_header"

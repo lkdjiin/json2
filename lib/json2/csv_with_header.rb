@@ -19,16 +19,15 @@ module Json2
     private
 
     def process_input
-      if @input.is_a?(Array)
-        process_array(@input)
-      else
+      if @input.respond_to?(:each_key)
         process_keys(@input)
+      else
+        process_array(@input)
       end
     end
 
     def process_keys(object)
-      case object
-      when Array, Hash
+      if object.respond_to?(:each_key)
         object.each_key do |key|
           @names_stack.push(key)
           process_key(object[key])
@@ -42,8 +41,8 @@ module Json2
 
     def process_key(object)
       case object
-      when Array then process_array(object)
-      when Hash then process_keys(object)
+      when ~:each_key then process_keys(object)
+      when ~:at then process_array(object)
       else
         @nodes[@names_stack.join('.')] <<= object
       end
