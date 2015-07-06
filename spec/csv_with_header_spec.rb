@@ -4,9 +4,6 @@ describe CsvWithHeader do
 
   describe 'when the header is unknown' do
 
-    before { $stderr.reopen("/dev/null", "w") }
-    after { $stderr = STDERR }
-
     it 'exits' do
       expect {
         Json2::CsvWithHeader.new(input)

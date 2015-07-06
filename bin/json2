@@ -9,7 +9,7 @@ input = JSON.parse((ARGV[0] ? File.open(ARGV[0]) : $stdin).read)
 json = if opt[:without_header]
          Json2::CsvWithoutHeader.new(input)
        else
-         Json2::CsvWithHeader.new(input)
+         Json2::CsvWithHeader.new(input, opt)
        end
 
 print json.output

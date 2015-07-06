@@ -3,16 +3,20 @@ module Json2
   class Option
 
     def initialize
-      @options = { without_header: false }
+      @options = { without_header: false, with_path: false }
 
-      optparse = OptionParser.new do|opts|
-        opts.on( '-w', '--without-header', 'Output csv without a header' ) do
+      optparse = OptionParser.new do |opts|
+        opts.on('-w', '--without-header', 'Output csv without a header') do
           @options[:without_header] = true
         end
-        opts.on( '-v', '--version', 'Print version number and exit' ) do
+        opts.on('-p', '--path PATH', 'Extract only this path') do |arg|
+          @options[:with_path] = true
+          @options[:path] = arg
+        end
+        opts.on('-v', '--version', 'Print version number and exit') do
           @options[:version] = true
         end
-        opts.on( '-h', '--help', 'Display this screen' ) do
+        opts.on('-h', '--help', 'Display this screen') do
           puts opts
           exit
         end

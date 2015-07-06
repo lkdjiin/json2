@@ -3,7 +3,8 @@ module Json2
   # Turn a Json input into a Csv output with a header.
   class CsvWithHeader
 
-    def initialize(input)
+    def initialize(input, options = {})
+      @options = options
       @input = input
       @names_stack = []
       @nodes = Hash.new {|hash, key| hash[key] = [] }
@@ -44,12 +45,28 @@ module Json2
       when ~:each_key then process_keys(object)
       when ~:at then process_array(object)
       else
-        @nodes[@names_stack.join('.')] <<= object
+        @nodes[current_line] <<= object if line_eligible?
       end
     end
 
     def process_array(object)
       object.each {|element| process_keys(element) }
+    end
+
+    def current_line
+      @names_stack.join('.')
+    end
+
+    def line_eligible?
+      with_a_good_path? || without_path?
+    end
+
+    def with_a_good_path?
+      @options[:with_path] && current_line.start_with?(@options[:path])
+    end
+
+    def without_path?
+      !@options[:with_path]
     end
 
   end
