@@ -14,4 +14,11 @@ describe Option do
 
   end
 
+  describe '--version' do
+    it 'exits' do
+      ARGV.replace(['-v'])
+      expect { Option.new }.to raise_error(SystemExit)
+    end
+  end
+
 end
