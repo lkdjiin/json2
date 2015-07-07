@@ -15,11 +15,7 @@ module Json2
     private
 
     def process_input
-      if @input.respond_to?(:each_key)
-        process_keys(@input)
-      else
-        process_array(@input)
-      end
+      process_keys(@input)
     end
 
     def process_keys(object)
