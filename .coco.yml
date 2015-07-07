@@ -1,0 +1,3 @@
+:excludes:
+- spec
+- lib/json2/version.rb
