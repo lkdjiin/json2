@@ -1,27 +1,23 @@
 require 'spec_helper'
 
+include Json2
+
 describe CsvWithHeader do
 
   describe 'when the header is unknown' do
 
     it 'exits' do
       expect {
-        Json2::CsvWithHeader.new(input)
+        CsvWithHeader.new(input)
       }.to raise_error(SystemExit)
     end
 
     it 'exits with code 99' do
       begin
-        Json2::CsvWithHeader.new(input)
+        CsvWithHeader.new(input)
       rescue SystemExit => e
         expect(e.status).to eq 99
       end
-    end
-
-    xit 'outputs a message' do
-      expect {
-        Json2::CsvWithHeader.new(input)
-      }.to output(/try with json2 --without-header/i).to_stderr.and.raise_error
     end
 
   end

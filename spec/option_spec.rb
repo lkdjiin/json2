@@ -21,6 +21,20 @@ describe Option do
     end
   end
 
+  describe '--help' do
+    it 'exits' do
+      ARGV.replace(['-h'])
+      expect { Option.new }.to raise_error(SystemExit)
+    end
+  end
+
+  describe 'Unknown switch' do
+    it 'exits' do
+      ARGV.replace(['-z'])
+      expect { Option.new }.to raise_error(SystemExit)
+    end
+  end
+
   describe '--path' do
 
     it 'is not set by default' do
