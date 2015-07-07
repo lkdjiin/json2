@@ -1,15 +1,15 @@
 {
     "Nom du parti": {
         "Abstention": [
-            "Foo1 Bar1"
+            "Jean"
         ],
         "Non-votant": [],
         "Contre": [
-            "Foo2 Bar2",
-            "Foo3 Bar3"
+            "Alice",
+            "Georges"
         ],
         "Pour": [
-            "Foo4 Bar4"
+            "Julie"
         ]
     }
 }

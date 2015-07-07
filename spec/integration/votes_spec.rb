@@ -10,11 +10,11 @@ describe "votes.json as input" do
 
   def csv
 <<END
-Nom du parti,Abstention,Foo1 Bar1
+Nom du parti,Abstention,Jean
 Nom du parti,Non-votant,
-Nom du parti,Contre,Foo2 Bar2
-Nom du parti,Contre,Foo3 Bar3
-Nom du parti,Pour,Foo4 Bar4
+Nom du parti,Contre,Alice
+Nom du parti,Contre,Georges
+Nom du parti,Pour,Julie
 END
   end
 
