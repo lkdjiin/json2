@@ -12,11 +12,11 @@ describe CsvWithHeader do
       }.to raise_error(SystemExit)
     end
 
-    it 'exits with code 99' do
+    it 'exits with right code' do
       begin
         CsvWithHeader.new(input)
       rescue SystemExit => e
-        expect(e.status).to eq 99
+        expect(e.status).to eq 98
       end
     end
 

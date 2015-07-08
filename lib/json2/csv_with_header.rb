@@ -35,7 +35,7 @@ module Json2
           @names_stack.pop
         end
       else
-        error(99, 'Error, try with json2 --without-header')
+        error(98, 'Error, try with json2 --without-header')
       end
     end
 
