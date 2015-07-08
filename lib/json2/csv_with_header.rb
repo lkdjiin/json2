@@ -35,8 +35,7 @@ module Json2
           @names_stack.pop
         end
       else
-        warn('Error, try with json2 --without-header')
-        exit 99
+        error(99, 'Error, try with json2 --without-header')
       end
     end
 
@@ -67,6 +66,11 @@ module Json2
 
     def without_path?
       !@options[:with_path]
+    end
+
+    def error(code, message)
+      warn(message)
+      exit(code)
     end
 
   end

@@ -35,8 +35,7 @@ module Json2
       when ~:each_key then process_keys(object)
       when ~:at then process_array(object)
       else
-        warn('Error, try without using --without-header')
-        exit 99
+        error(99, 'Error, try without using --without-header')
       end
     end
 
@@ -52,6 +51,11 @@ module Json2
       @names_stack.push(element)
       @output += @names_stack.join(',') + "\n"
       @names_stack.pop
+    end
+
+    def error(code, message)
+      warn(message)
+      exit(code)
     end
 
   end
