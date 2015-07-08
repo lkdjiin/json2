@@ -1,31 +1,17 @@
 module Json2
 
+  # Process command line switches.
   class Option
 
     def initialize
       @options = { without_header: false, with_path: false }
 
-      optparse = OptionParser.new do |opts|
-        opts.on('-w', '--without-header', 'Output csv without a header') do
-          @options[:without_header] = true
-        end
-        opts.on('-p', '--path PATH', 'Extract only this path') do |arg|
-          @options[:with_path] = true
-          @options[:path] = arg
-        end
-        opts.on('-v', '--version', 'Print version number and exit') do
-          @options[:version] = true
-        end
-        opts.on('-h', '--help', 'Display this screen') do
-          puts opts
-          exit
-        end
-      end
+      optparse = OptionParser.new {|opts| parse(opts) }
 
       begin
         optparse.parse!
-      rescue OptionParser::InvalidOption => e
-        puts e.to_s
+      rescue OptionParser::InvalidOption => exception
+        puts exception.to_s
         exit 1
       end
 
@@ -34,6 +20,23 @@ module Json2
 
     def [](key)
       @options[key]
+    end
+
+    def parse(opts)
+      opts.on('-w', '--without-header', 'Output csv without a header') do
+        @options[:without_header] = true
+      end
+      opts.on('-p', '--path PATH', 'Extract only this path') do |arg|
+        @options[:with_path] = true
+        @options[:path] = arg
+      end
+      opts.on('-v', '--version', 'Print version number and exit') do
+        @options[:version] = true
+      end
+      opts.on('-h', '--help', 'Display this screen') do
+        puts opts
+        exit
+      end
     end
 
     private

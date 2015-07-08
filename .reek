@@ -1,2 +1,7 @@
 UncommunicativeModuleName:
   enabled: false
+
+TooManyStatements:
+  exclude:
+  - "Json2::Option#parse" # OptionParser is not «short method friendly».
+  - initialize
