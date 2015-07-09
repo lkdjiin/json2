@@ -3,6 +3,11 @@ module Json2
   # Turn a Json input into a Csv output with a header.
   class CsvWithHeader
 
+    # Creates a new CsvWithHeader instance.
+    #
+    # input   - A Hash representing a Json file. This is typically
+    #           obtained with JSON.parse.
+    # options - Optional. A Hash of options, see Option to get the list.
     def initialize(input, options = {})
       @options = options
       @input = input

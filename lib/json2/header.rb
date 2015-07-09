@@ -7,6 +7,9 @@ module Json2
       new(keys).get
     end
 
+    # Creates a new Header instance.
+    #
+    # keys - A Hash of String names of variable/column.
     def initialize(keys)
       @header = []
       @keys = keys

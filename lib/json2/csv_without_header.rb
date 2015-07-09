@@ -3,6 +3,10 @@ module Json2
   # Turn a Json input into a Csv output without header.
   class CsvWithoutHeader
 
+    # Creates a new CsvWithoutHeader instance.
+    #
+    # input - A Hash representing a Json file. This is typically
+    #         obtained with JSON.parse.
     def initialize(input)
       @input = input
       @names_stack = []

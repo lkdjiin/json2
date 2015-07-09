@@ -9,5 +9,6 @@ require "json2/header"
 require "json2/body"
 require "json2/option"
 
+# Transform a Json file into Csv.
 module Json2
 end
