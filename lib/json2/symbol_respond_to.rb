@@ -16,6 +16,7 @@
 #   end
 module SymbolRespondTo
 
+  # Returns Boolean.
   def ~@
     ->(object) { object.respond_to?(self) }
   end

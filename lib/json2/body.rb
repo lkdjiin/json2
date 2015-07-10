@@ -3,6 +3,12 @@ module Json2
   # Build a csv body.
   class Body
 
+    # Get the body of a Csv file.
+    #
+    # For a description of the parameters see Body#initialize.
+    #
+    # Returns the String body, that is several lines in a single string,
+    # each lines with comma separated values.
     def self.get(nodes, keys, column_size)
       new(nodes, keys, column_size).get
     end
@@ -26,6 +32,9 @@ module Json2
       @body = ''
     end
 
+    # Get the body of a Csv file. See also Body.get.
+    #
+    # Returns the String body.
     def get
       (0...@column_size).each {|observation| process_line(observation) }
       @body

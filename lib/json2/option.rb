@@ -36,6 +36,12 @@ module Json2
       print_version if @options[:version]
     end
 
+    # Get an option.
+    #
+    # key - The Symbol name of the option to get.
+    #
+    # Returns Any value corresponding of the key, or nil if the key
+    #   doesn't exists.
     def [](key)
       @options[key]
     end

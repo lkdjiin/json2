@@ -18,6 +18,9 @@ module Json2
       @keys = @nodes.keys.select {|key| @nodes[key].size == @column_size }
     end
 
+    # Get the Csv.
+    #
+    # Returns the whole document as a single String.
     def output
       Header.get(@keys) + Body.get(@nodes, @keys, @column_size)
     end

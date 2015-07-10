@@ -14,6 +14,9 @@ module Json2
       process_input
     end
 
+    # Get the Csv.
+    #
+    # Returns the whole document as a single String.
     attr_reader :output
 
     private
