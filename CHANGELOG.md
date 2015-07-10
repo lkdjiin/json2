@@ -2,7 +2,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased][unreleased]
+## [Unreleased] - unreleased
+
+## [0.1.0] - 2015-07-10
 ### Added
 - Basic Json to Csv behavior, based on several Json examples.
 - Works well with other command line tools by using a file as input or by

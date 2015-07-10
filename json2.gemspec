@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{Transform json to csv.}
   spec.description   = %q{json2 takes a json file as input and outputs a clean
                           csv.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/lkdjiin/json2"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
